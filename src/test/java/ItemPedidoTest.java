@@ -1,5 +1,5 @@
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ItemPedidoTest {
 
@@ -8,7 +8,7 @@ public class ItemPedidoTest {
         Produto produto = new Produto("cafe", 5.5);
         ItemPedido pedido = new ItemPedido(produto,4);
         double subtotal = produto.getPrecoUnitario() * pedido.getQuantidade();
-        assertEquals(16.5, subtotal, 0.01);
+        assertEquals(22, subtotal, 0.01);
     }
 
 }
