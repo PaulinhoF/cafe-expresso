@@ -16,10 +16,8 @@ public class ItemPedido {
         return quantidade;
     }
 
-    public double calcularSubtotal(){
-        produto = new Produto("Café", 5.5);
-        ItemPedido pedido = new ItemPedido(produto, 4);
-        double subtotal = produto.getPrecoUnitario() * pedido.getQuantidade();
+    public double calcularSubtotal() {
+        double subtotal = produto.getPrecoUnitario() * quantidade;
         return subtotal;
     }
 
