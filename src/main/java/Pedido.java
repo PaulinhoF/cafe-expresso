@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Pedido {
+
+    private List<ItemPedido> itens = new ArrayList<>();
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void adicionarItem(Produto produto, int quantidade) {
+        itens.add(new ItemPedido(produto, quantidade));
+    }
+
+}
