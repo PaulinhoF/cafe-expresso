@@ -13,4 +13,11 @@ public class Pedido {
         itens.add(new ItemPedido(produto, quantidade));
     }
 
+    public double calcularTotal() {
+        double total = 0;
+        for (ItemPedido itemPedido : itens) {
+            total += itemPedido.calcularSubtotal();
+        }
+        return total;
+    }
 }

@@ -1,15 +1,46 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PedidoTest {
 
+    private Produto cafe;
+    private Pedido pedido;
+
+    @BeforeEach
+    public void setUp() {
+        cafe = new Produto("Café", 3.50);
+        pedido = new Pedido();
+        pedido.adicionarItem(cafe, 3);
+    }
+
     @Test
     public void testaAdicionarItemAoPedido() {
-        Produto cafe = new Produto("Café", 3.50);
-        Pedido pedido = new Pedido();
-        pedido.adicionarItem(cafe, 3);
-        Produto produtoNoPedido = pedido.getItens().get(0).getProduto();
-        assertEquals("Café", produtoNoPedido.getNome());
+        assertEquals("Café", pedido.getItens().get(0).getProduto().getNome());
     }
+
+    @Test
+    public void deveAdicionarMaisItensAoPedido() {
+        Produto chocolate = new Produto("Chocolate", 5.50);
+        pedido.adicionarItem(chocolate, 2);
+        assertEquals(2, pedido.getItens().size());
+        assertEquals("Café", pedido.getItens().get(0).getProduto().getNome());
+        assertEquals(chocolate, pedido.getItens().get(1).getProduto());
+    }
+
+    @Test
+    public void deveCalcularTotalDeUmItemNoPedido() {
+        pedido.calcularTotal();
+        assertEquals(10.5, pedido.calcularTotal());
+    }
+
+    @Test
+    public void deveCalcularTotalDeMaisDeUmItemNoPedido() {
+        Produto chocolate = new Produto("Chocolate", 5.50);
+        pedido.adicionarItem(chocolate, 2);
+        pedido.calcularTotal();
+        assertEquals(21.5, pedido.calcularTotal());
+    }
+
 }

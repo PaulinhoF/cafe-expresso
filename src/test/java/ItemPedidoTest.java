@@ -21,7 +21,7 @@ public class ItemPedidoTest {
         });
         assertEquals("Preço inválido!", erroCapturado.getMessage());
     }
-    
+
     @Test
     public void testaCalculoDoSubtotalDeveLancarErroQuandoQuantidadeAbaixoDeUm() {
         Produto produto = new Produto("chá", 3.50);
@@ -31,7 +31,4 @@ public class ItemPedidoTest {
         });
         assertEquals("Quantidade inválida!", erroCapturado.getMessage());
     }
-
-
-
 }
