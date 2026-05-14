@@ -2,3 +2,5 @@ target/classes/ItemPedido.class
 target/classes/Pedido.class
 target/test-classes/ItemPedidoTest.class
 target/test-classes/PedidoTest.class
+target/classes/ItemPedido.class
+target/test-classes/ItemPedidoTest.class

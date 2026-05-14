@@ -8,3 +8,11 @@ O sistema visa melhorar a experiência do cliente, reduzir o tempo de espera e m
 erros de anotação dos pedidos. Ele terá duas interfaces principais: uma voltada para o
 **Cliente** no totem de autoatendimento e outra para o **Atendente** (no balcão/cozinha), que irá
 visualizar e gerenciar os pedidos que chegam.
+
+🚀**Roadmap**🚀
+
+**Requisitos Funcionais Mínimos (RF):**
+✔ **RF01:** Permitir cadastro de produtos com nome e preço.
+✔ **RF02:** Permitir adicionar múltiplos itens a um pedido.
+✔ **RF03:** Calcular automaticamente o valor total do pedido.
+⏳ **RF04:** Permitir a alteração do status do pedido (Pendente, Pago, Em Preparo, Finalizado).
