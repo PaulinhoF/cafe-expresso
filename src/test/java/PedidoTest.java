@@ -31,7 +31,6 @@ public class PedidoTest {
 
     @Test
     public void deveCalcularTotalDeUmItemNoPedido() {
-        pedido.calcularTotal();
         assertEquals(10.5, pedido.calcularTotal());
     }
 
@@ -39,8 +38,31 @@ public class PedidoTest {
     public void deveCalcularTotalDeMaisDeUmItemNoPedido() {
         Produto chocolate = new Produto("Chocolate", 5.50);
         pedido.adicionarItem(chocolate, 2);
-        pedido.calcularTotal();
         assertEquals(21.5, pedido.calcularTotal());
+    }
+
+    @Test
+    public void deveAceitarPagamentoDePedidoPendente() {
+        pedido.calcularTotal();
+        pedido.pagar();
+        assertEquals(StatusPedido.PAGO, pedido.getStatus());
+    }
+       
+    @Test
+    public void DeveEnviarParaCozinhaPedidoPago() {
+        pedido.calcularTotal();
+        pedido.pagar();
+        pedido.enviarParaCozinha();
+        assertEquals(StatusPedido.EM_PREPARO, pedido.getStatus());
+    }
+
+    @Test
+    public void deveFinalizarPedidoDepoisDeTodasEtapas() {
+        pedido.calcularTotal();
+        pedido.pagar();
+        pedido.enviarParaCozinha();
+        pedido.finalizarPedido();
+        assertEquals(StatusPedido.FINALIZADO, pedido.getStatus());
     }
 
 }
