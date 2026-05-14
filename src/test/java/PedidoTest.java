@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,7 +50,7 @@ public class PedidoTest {
     }
        
     @Test
-    public void DeveEnviarParaCozinhaPedidoPago() {
+    public void deveEnviarParaCozinhaPedidoPago() {
         pedido.calcularTotal();
         pedido.pagar();
         pedido.enviarParaCozinha();
@@ -63,6 +64,15 @@ public class PedidoTest {
         pedido.enviarParaCozinha();
         pedido.finalizarPedido();
         assertEquals(StatusPedido.FINALIZADO, pedido.getStatus());
+    }
+
+    @Test
+    public void soDeveEnviarParaCozinhaPedidoPago() {
+        pedido.calcularTotal();
+        pedido.pagar();        
+        assertNotEquals(StatusPedido.PENDENTE, pedido.getStatus());
+        assertNotEquals(StatusPedido.EM_PREPARO, pedido.getStatus());
+        assertNotEquals(StatusPedido.FINALIZADO, pedido.getStatus());
     }
 
 }
