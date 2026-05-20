@@ -15,4 +15,4 @@ visualizar e gerenciar os pedidos que chegam.
 ✔ **RF01:** Permitir cadastro de produtos com nome e preço.  
 ✔ **RF02:** Permitir adicionar múltiplos itens a um pedido.  
 ✔ **RF03:** Calcular automaticamente o valor total do pedido.  
-⏳ **RF04:** Permitir a alteração do status do pedido (Pendente, Pago, Em Preparo, Finalizado).  
+✔ **RF04:** Permitir a alteração do status do pedido (Pendente, Pago, Em Preparo, Finalizado).  
